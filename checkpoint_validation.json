@@ -1,0 +1,192 @@
+{
+  "model_configuration": {
+    "node_dim": 64,
+    "hidden_dim": 256,
+    "num_layers": 4,
+    "M": 3,
+    "K": 1000,
+    "theta_min": 0.1,
+    "theta_max": 20.0,
+    "T": 1.0,
+    "dropout": 0.15,
+    "leaky_slope": 0.2,
+    "random_seed": 42
+  },
+  "fidelity_evaluation": {
+    "figure_4b": {
+      "R2": 0.963,
+      "RMSE": 0.053,
+      "MAE": 0.042,
+      "sample_size": 5475,
+      "time_span": "2012-2014"
+    }
+  },
+  "core_route_disruption": {
+    "figure_5": {
+      "nodes": [
+        "N1",
+        "N4",
+        "N7",
+        "N8"
+      ],
+      "hit_rate_30_percent_threshold": 0.915,
+      "bootstrap_iterations": 5000,
+      "confidence_interval": 95
+    }
+  },
+  "baseline_adversarial": {
+    "table_11": {
+      "CG_SDE_full": {
+        "mu_res": 0.042,
+        "se": 0.0031,
+        "ci_99_lower": 0.034,
+        "ci_99_upper": 0.05
+      },
+      "GraphSDE_continuous": {
+        "mu_res": 0.068,
+        "se": 0.0042,
+        "cohen_d": 0.85,
+        "p_value": 0.01
+      },
+      "CG_SDE_without_ScoreGNN": {
+        "mu_res": 0.086,
+        "se": 0.0051,
+        "cohen_d": 1.12,
+        "p_value": 0.01
+      },
+      "HGCN_with_GAT": {
+        "mu_res": 0.092,
+        "se": 0.0055,
+        "cohen_d": 1.24,
+        "p_value": 0.01
+      },
+      "Graph_Transformer": {
+        "mu_res": 0.105,
+        "se": 0.006,
+        "cohen_d": 1.36,
+        "p_value": 0.01
+      },
+      "ST_DGAT": {
+        "mu_res": 0.117,
+        "se": 0.0065,
+        "cohen_d": 1.48,
+        "p_value": 0.001
+      }
+    }
+  },
+  "flow_projection_ablation": {
+    "table_12": {
+      "Proposed_Hyperbolic": {
+        "mu_res": 0.042,
+        "boundary_drift": 0.001,
+        "violation_rate": 0.0
+      },
+      "Standard_Euclidean": {
+        "mu_res": 0.079,
+        "boundary_drift": 0.034,
+        "violation_rate": 0.12
+      },
+      "Unconstrained": {
+        "mu_res": 0.142,
+        "boundary_drift": 0.115,
+        "violation_rate": 8.45
+      }
+    }
+  },
+  "phase_transition": {
+    "figure_7": {
+      "phase_I_boundary": 0.52,
+      "phase_II_boundary": 0.68,
+      "phase_III_boundary": 0.75,
+      "MIC": 0.87,
+      "maximum_lyapunov_exponent": 1.45,
+      "bifurcation_interval": [
+        0.68,
+        0.75
+      ]
+    }
+  },
+  "sensitivity_analysis": {
+    "table_14": {
+      "survival_threshold_20": {
+        "hit_rate": 84.2
+      },
+      "survival_threshold_30": {
+        "hit_rate": 91.5
+      },
+      "survival_threshold_40": {
+        "hit_rate": 96.7
+      },
+      "shock_limit_minus80to85": {
+        "MIC": 0.85
+      },
+      "shock_limit_minus90": {
+        "MIC": 0.87
+      },
+      "shock_limit_minus95to100": {
+        "MIC": 0.82
+      }
+    }
+  },
+  "external_validation": {
+    "table_8": {
+      "full_sample": {
+        "MAE": 0.051,
+        "RMSE": 0.063,
+        "spearman": 0.89,
+        "hit_rate": 92.4
+      },
+      "primary_manufacturing": {
+        "MAE": 0.058,
+        "RMSE": 0.071,
+        "spearman": 0.86,
+        "hit_rate": 91.2
+      },
+      "high_tech_electronics": {
+        "MAE": 0.043,
+        "RMSE": 0.052,
+        "spearman": 0.91,
+        "hit_rate": 94.6
+      },
+      "downstream_logistical": {
+        "MAE": 0.049,
+        "RMSE": 0.061,
+        "spearman": 0.88,
+        "hit_rate": 90.8
+      }
+    },
+    "table_9": {
+      "top10_core": {
+        "empirical": -24.5,
+        "predicted": -21.3,
+        "RMSE": 0.038,
+        "tracking_error": 3.2
+      },
+      "secondary_manufacturing": {
+        "empirical": -11.2,
+        "predicted": -16.4,
+        "RMSE": 0.065,
+        "tracking_error": 5.2
+      },
+      "peripheral_services": {
+        "empirical": -3.1,
+        "predicted": -10.5,
+        "RMSE": 0.081,
+        "tracking_error": 7.4
+      },
+      "global_network": {
+        "empirical": -5.4,
+        "predicted": -8.9,
+        "RMSE": 0.057,
+        "tracking_error": 3.5
+      }
+    }
+  },
+  "data_generation_timestamp": "2026-08-04",
+  "computational_environment": {
+    "hardware": "NVIDIA A100 Tensor Core GPU 80GB VRAM",
+    "os": "Ubuntu 22.04",
+    "framework": "PyTorch 2.0",
+    "seed": 42
+  }
+}

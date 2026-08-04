@@ -1,0 +1,32 @@
+data:
+  feature_dim: 64
+  num_nodes: 2464
+  tensor_path: data/wiod_daily_interpolated.npy
+  train_end_year: 2010
+  train_start_year: 2000
+  val_end_year: 2014
+  val_start_year: 2011
+model:
+  K: 1000
+  M: 3
+  T: 1.0
+  dropout: 0.15
+  hidden_dim: 256
+  leaky_slope: 0.2
+  node_dim: 64
+  num_layers: 4
+  theta_max: 20.0
+  theta_min: 0.1
+random_seed: 42
+training:
+  batch_size: 16
+  beta1: 0.9
+  beta2: 0.999
+  device: cuda
+  epochs: 5000
+  gradient_clip_norm: 1.0
+  learning_rate: 0.0002
+  scheduler: cosine_annealing
+  shadow_update_decay: 0.999
+  shadow_update_frequency: 5000
+  weight_decay: 0.0001
